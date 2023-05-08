@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horário Atual</title>
+    <style>
+        h1{
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 800;
+            color: white;
+        }
+        main{
+            width: 500px;
+            background-color: white;
+            display: block;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.411);
+            padding: 10px;
+        }
+        p#horaagora{
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 0px 10px 10px 10px;
+        }
+        p#respeito{
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 10px 10px 10px 10px;
+        }
+        img#imagem{
+            border-radius: 50%;
+            width: 200px;
+            height: 200px;
+            display: block;
+            margin: auto;
+        }
+    </style>
+</head>
+<body onload="mudar()">
+    <h1>Hora do Dia</h1>
+    <main>
+        <p id="horaagora"></p>
+        <img src="" alt="" id="imagem">
+        <p id="respeito"></p>
+    </main>
+    <script>
+        var hora = new Date()
+        var agora = hora.getHours()
+        document.getElementById('horaagora').innerHTML = `Agora são ${agora} horas`
+        var img = document.getElementById('imagem')
+
+        function mudar(){
+            if(agora>=5 && agora<12){
+                img.src = 'img/manha.jpg'
+                document.body.style.background = 'skyblue'
+                document.getElementById('respeito').innerHTML = 'Bom dia'
+            } else if(agora>=12 && agora<=18){
+                img.src = 'img/tarde.jpg'
+                document.body.style.background = 'rgb(89, 64, 255)'
+                document.getElementById('respeito').innerHTML = 'Boa tarde'
+            } else{
+                img.src = 'img/noite.jpg'
+                document.body.style.background = 'rgb(42, 36, 81)'
+                document.getElementById('respeito').innerHTML = 'Boa tarde'
+            }
+        }
+    </script>
+</body>
+</html>
